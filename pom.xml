@@ -5,15 +5,37 @@
     <groupId>com.xiaochen.gulimall</groupId>
     <artifactId>gulimall</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <source>8</source>
+                    <target>8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
     <name>gulimall</name>
     <description>聚合服务</description>
     <packaging>pom</packaging>
 
+<!--    将各个微服务模块聚合在一起，方便管理-->
     <modules>
         <module>gulimall-coupon</module>
         <module>gulimall-member</module>
         <module>gulimall-order</module>
         <module>gulimall-product</module>
         <module>gulimall-ware</module>
+        <module>renren-fast</module>
+        <module>renren-generator</module>
+        <module>gulimall-common</module>
+        <module>gulimall-thirdparty</module>
+        <module>gulimall-search</module>
+        <module>gulimall-cart</module>
+        <module>gulimall-auth-server</module>
+        <module>gulimall-gateway</module>
     </modules>
 </project>
