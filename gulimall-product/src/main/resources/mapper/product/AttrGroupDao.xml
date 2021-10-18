@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xiaochen.gulimall.product.dao.AttrGroupDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.xiaochen.gulimall.product.entity.AttrGroupEntity" id="attrGroupMap">
+        <result property="attrGroupId" column="attr_group_id"/>
+        <result property="attrGroupName" column="attr_group_name"/>
+        <result property="sort" column="sort"/>
+        <result property="descript" column="descript"/>
+        <result property="icon" column="icon"/>
+        <result property="catelogId" column="catelog_id"/>
+    </resultMap>
+
+    <resultMap id="spuItemBaseAttrVo" type="com.xiaochen.gulimall.product.vo.respone.SkuItemVo$SpuItemBaseAttrVo">
+        <result property="groupName" column="groupName"/>
+        <collection property="attrs" ofType="com.xiaochen.gulimall.product.vo.respone.SkuItemVo$SpuBaseAttrVo">
+            <result column="attrName" property="attrName" />
+            <result column="attrValue" property="attrValue" />
+        </collection>
+    </resultMap>
+    <select id="selectItemBaseAttr"
+            resultMap="spuItemBaseAttrVo">
+        SELECT pag.attr_group_name groupName,ppav.attr_name attrName,ppav.attr_value attrValue FROM pms_attr_group attr
+        LEFT JOIN pms_attr_attrgroup_relation paar ON attr.attr_group_id = paar .attr_group_id
+        LEFT JOIN pms_product_attr_value ppav ON ppav.attr_id = paar.attr_id
+        LEFT JOIN pms_attr_group pag ON pag.attr_group_id =attr.attr_group_id
+        WHERE attr.catelog_id = #{catalogId} AND ppav.spu_id= #{spuId}
+    </select>
+
+
+</mapper>

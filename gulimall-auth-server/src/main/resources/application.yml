@@ -1,0 +1,23 @@
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+  application:
+    name: gulimall-auth-server
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  thymeleaf:
+    cache: false
+  redis:
+    host: 192.168.138.130
+    port: 6379
+  session:
+    store-type: redis
+
+server:
+  port: 20000
+logging:
+  level:
+    com.xiaochen.gulimall: debug

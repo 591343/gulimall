@@ -1,0 +1,42 @@
+# Tomcat
+spring:
+  datasource:
+    username: root
+    password: root
+    url: jdbc:mysql://192.168.138.130:3306/gulimall_pms?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+  application:
+    name: gulimall-cart
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  thymeleaf:
+    cache: false
+  redis:
+    host: 192.168.138.130
+    port: 6379
+#  cache:
+#    type: redis
+#    redis:
+#      time-to-live: 10000
+#      use-key-prefix: true
+#      key-prefix: CACHE_
+#      cache-null-values: true
+  session:
+    store-type: redis
+
+server:
+  port: 21000
+logging:
+  level:
+    com.xiaochen.gulimall: debug
+
+gulimall:
+  thread:
+    core-pool-size: 20
+    maximum-pool-size: 200
+    keep-alive-time: 10

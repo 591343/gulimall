@@ -1,0 +1,27 @@
+# Tomcat
+spring:
+  datasource:
+    username: root
+    password: root
+    url: jdbc:mysql://192.168.138.130:3306/gulimall_pms?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+    alicloud:
+      access-key: LTAI5tCra4gjMSVCBjHPt2Mv
+      secret-key: oJHr4kebSzzGcm13L6dpcJmqcFlhLO
+      oss:
+        endpoint: oss-cn-chengdu.aliyuncs.com
+        bucket: gulimall-chenxiao
+      duanxin:
+        host: http://dingxin.market.alicloudapi.com
+        path: /dx/sendSms
+        appcode: 87138c1622ab45e49668888a90c24b36
+
+  application:
+    name: gulimall-thirdparty
+
+server:
+  port: 12000
